@@ -9,6 +9,21 @@ A hands-free solution for controlling media playback from a distance. Control me
 - 4 fingers: Down arrow
 - 5 fingers (full hand): Space (play/pause)
 
+## Hand Detection Logic
+
+The application uses MediaPipe's hand landmark detection. Here's how finger counting works:
+
+- Each finger is considered "up" if the distance between its tip and the base (PIP joint) exceeds a dynamic threshold
+- The threshold is calculated based on hand size in the frame (using wrist to middle finger MCP distance)
+- For thumb detection, we look at the horizontal distance due to its different bending axis
+
+![MediaPipe Hand Landmarks](image-1759468502336.png)
+
+*The diagram shows the 21 hand landmarks used for gesture detection. Key points:*
+- Tips: 4 (thumb), 8, 12, 16, 20
+- PIPs (second knuckle): 3, 7, 11, 15, 19
+- MCPs (base knuckles): 2, 5, 9, 13, 17
+
 ## Requirements
 - Python 3.11 (required for mediapipe compatibility)
 - Webcam
@@ -47,17 +62,3 @@ Tips for best use:
   - Left/Right arrows: Rewind/Forward 5 seconds (2/1 fingers)
   - Up/Down arrows: Volume control (3/4 fingers)
 
-## Hand Detection Logic
-
-The application uses MediaPipe's hand landmark detection. Here's how finger counting works:
-
-- Each finger is considered "up" if the distance between its tip and the base (PIP joint) exceeds a dynamic threshold
-- The threshold is calculated based on hand size in the frame (using wrist to middle finger MCP distance)
-- For thumb detection, we look at the horizontal distance due to its different bending axis
-
-![MediaPipe Hand Landmarks](image-1759468502336.png)
-
-*The diagram shows the 21 hand landmarks used for gesture detection. Key points:*
-- Tips: 4 (thumb), 8, 12, 16, 20
-- PIPs (second knuckle): 3, 7, 11, 15, 19
-- MCPs (base knuckles): 2, 5, 9, 13, 17
