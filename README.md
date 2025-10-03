@@ -1,4 +1,4 @@
-# Hand-Controlled Media Player
+﻿# Hand-Controlled Media Player
 
 A hands-free solution for controlling media playback from a distance. Control media playback with hand gestures using your webcam. Simply show your hand to the camera and use finger gestures to control media playback, volume, and navigation.
 
@@ -55,7 +55,7 @@ The application uses MediaPipe's hand landmark detection. Here's how finger coun
 - The threshold is calculated based on hand size in the frame (using wrist to middle finger MCP distance)
 - For thumb detection, we look at the horizontal distance due to its different bending axis
 
-![MediaPipe Hand Landmarks](C:\Users\manth\Documents\GitHub\hand-controlled-media-player\hand-controlled-media-player\image-1759468502336.png)
+![MediaPipe Hand Landmarks](image-1759468502336.png)
 
 *The diagram shows the 21 hand landmarks used for gesture detection. Key points:*
 - Tips: 4 (thumb), 8, 12, 16, 20
